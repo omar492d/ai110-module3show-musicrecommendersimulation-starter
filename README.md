@@ -17,8 +17,6 @@ Replace this paragraph with your own summary of what your version does.
 
 ## How The System Works
 
-Explain your design in plain language.
-
 Some prompts to answer:
 
 - What features does each `Song` use in your system
@@ -27,7 +25,7 @@ Some prompts to answer:
 - How does your `Recommender` compute a score for each song
 - How do you choose which songs to recommend
 
-You can include a simple diagram or bullet list if helpful.
+Real-world platforms like Spotify and YouTube maainly operate by blending two ideas: collaborative filtering (recommending what similar users liked) and content-based filtering (recommending songs whose attributes match your taste). They learn from huge amounts of behavioral data — likes, skips, replays, and listen time — and combine it with song features like tempo, energy, and mood. My version focuses on the content-based half, since it works from song attributes alone without needing a crowd of users. Each `Song` is scored against a `UserProfile` using a weighted rule that rewards matching genre and mood and gives more points to songs whose energy is close to the user's preference. Genre is weighted highest because it's the most reliable taste signal, with mood, energy, and acousticness refining the result. The scores then rank every song so the top few are returned as recommendations — with a short reason for each.
 
 ---
 
